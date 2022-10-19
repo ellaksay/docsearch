@@ -36,9 +36,22 @@ class Handler implements URLHandler {
       this.files = FileHelpers.getFiles(Paths.get(directory));
     }
     public String handleRequest(URI url) throws IOException {
+        /*if (url.getPath().equals("/")) {
+            return String.format("There are %n files to search", paths);
+        } 
+        else {
+            System.out.println("Path: " + url.getPath());
+
+        if (url.getPath().contains("/search")){
+            String[] args = url.getQuery().split("=");
+            String[] output = FileHelpers.getFiles(args[0]);
+            String outputString = String.join(", ", output);
+                return String.format("There were %n files found: %s", output.length, outputString);
+                }
+            }*/
       return "Don't know how to handle that path!";
+        }
     }
-}
 
 class DocSearchServer {
     public static void main(String[] args) throws IOException {
